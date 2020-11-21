@@ -1,3 +1,11 @@
+game.onUpdateInterval(1000, function() {
+    let zombies = sprites.allOfKind(SpriteKind.Enemy)
+    let randomZombieNumber = randint(0, zombies.length - 1)
+    let randomZombie = zombies[randomZombieNumber]
+    let randomSayingNumber = randint(0, zombieSayings.length - 1)
+    let randomSaying = zombieSayings[randomSayingNumber]
+    randomZombie.say(randomSaying, 2000)
+})
 // constructor method for zombies
 function addZombies () {
     zombieNumber = randint(0, zombieImgs.length - 1)
@@ -340,6 +348,13 @@ img`
     ....ceeec....c......
     .....ccc.....e......
     `
+]
+let zombieSayings: string[] = [
+    "Grrrr",
+    "Brains",
+    "Eat your brains",
+    "Aaaaghhrhh",
+    "Brnhhggghh"
 ]
 scene.setBackgroundColor(7)
 tiles.setTilemap(tilemap`level_1`)
